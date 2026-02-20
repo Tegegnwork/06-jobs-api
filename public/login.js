@@ -2,6 +2,7 @@ import {
   inputEnabled,
   setDiv,
   token,
+  message,
   enableInput,
   setToken,
 } from "./index.js";

@@ -1,6 +1,6 @@
 import { enableInput, inputEnabled, message, setDiv, token } from "./index.js";
 import { showJobs } from "./jobs.js";
-
+let jobDiv = null;
 let addEditDiv = null;
 let company = null;
 let position = null;
@@ -65,6 +65,7 @@ export const handleAddEdit = () => {
   }
   enableInput(true);
 }else if (e.target === editCancel) {
+  message.textContent = "";
       setDiv(jobDiv);
       }
     }
