@@ -6,6 +6,7 @@ const getAllJobs =  async (req,res) => {
 const jobs = await Job.find({ createdBy: req.user.userId }).sort('createdAt')
 res.status(StatusCodes.OK).json({ jobs, count: jobs.length })
 }
+
 const getJob =  async (req,res) => {
  const { user:{userId},
   params:{id:jobId} } = req
@@ -18,6 +19,7 @@ const getJob =  async (req,res) => {
  }
  res.status(StatusCodes.OK).json({ job })
 }
+
 const createJob =  async (req,res) => {
     req.body.createdBy = req.user.userId
     const job = await Job.create(req.body)
@@ -45,7 +47,7 @@ const deleteJob =  async (req,res) => {
       if(!job){
         throw new NotFoundError('no job found')
       }
-      res.status(StatusCodes.OK).json({ msg: 'job deleted' })
+      res.status(StatusCodes.OK).json({ msg: 'The entry was deleted.' })
 }
 module.exports = {
         getAllJobs,
